@@ -48,6 +48,7 @@ html, body {
     border: var(--card-border) solid transparent;
     border-radius: 30px;
     padding: var(--card-padding);
+    margin-top: 15px;
 }
 
     .card:hover {
@@ -134,6 +135,10 @@ html, body {
 .selection-label-radio {
     display: none;
 }
+
+    .selection-label-radio:not(:checked)[disabled] + .selection-label-display {
+        color: #808080;
+    }
 
 .items-3 > .selection-label,
 .items-3 .selection-label-display {
