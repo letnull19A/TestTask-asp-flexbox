@@ -11,7 +11,6 @@ html, body {
 }
 
 :root {
-    --container-width: 95%;
     --card-padding: 20px;
     --card-width: 340px;
     --card-border: 3px;
@@ -25,6 +24,8 @@ html, body {
     --title-line-height: calc(var(--title-font-size) + 2px);
     --description-font-size: 15px;
     --description-line-height: calc(var(--description-font-size) + 4px);
+    --gap: 1em;
+    --container-width: calc(((var(--card-width) + var(--gap)) * 4) - var(--gap));
 }
 
 .container {
@@ -38,7 +39,8 @@ html, body {
 .grid-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.7%;
+    column-gap: var(--gap);
+    row-gap: 15px;
 }
 
 .card {
@@ -48,7 +50,6 @@ html, body {
     border: var(--card-border) solid transparent;
     border-radius: 30px;
     padding: var(--card-padding);
-    margin-top: 15px;
 }
 
     .card:hover {
@@ -136,7 +137,8 @@ html, body {
     display: none;
 }
 
-    .selection-label-radio:not(:checked)[disabled] + .selection-label-display {
+    .selection-label-radio:not(:checked)[disabled] + .selection-label-display,
+    .toggler > input[disabled] + .display-checked {
         color: #808080;
     }
 

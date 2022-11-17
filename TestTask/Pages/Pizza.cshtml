@@ -1,0 +1,156 @@
+﻿@page "/Pizza"
+@model TestTask.Pages.PizzaModel
+@{
+}
+
+<div class="grid-list">
+
+    @for(int i = 0;  i < Model.PizzaList.Count(); i++)
+    {
+
+        <div class="card">
+        <div class="card-image">
+            <img src=@Model.PizzaList[i].Image />
+        </div>
+        <div class="card-name">
+            <p>@Model.PizzaList[i].Name</p>
+        </div>
+        <div class="card-description">
+            <article>
+                @Model.PizzaList[i].Description
+                    @for (int j = 0; j < Model.PizzaList[i].Ingredients?.Count(); j++)
+                    {
+                        <label class="products"><input type="checkbox" checked/><span>@Model.PizzaList[i].Ingredients[j]</span></label>
+                        
+                        @if (j < Model.PizzaList[i].Ingredients?.Count() - 1)
+                        {
+                            <span>, </span>
+                        }
+                    }
+            </article>
+        </div>
+        <div class="card-row">
+                <div class="selection items-3">
+                <label class="selection-label">
+                        @if (Model.PizzaList[i].SelectedSize == 0)
+                        {    
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                        } else
+                        {
+                            @if (Model.PizzaList[i].AvailableSizes[0])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                            else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                        }
+                    <span class="selection-label-display">30 см</span>
+                </label>
+                <label class="selection-label">
+                        @if (Model.PizzaList[i].SelectedSize == 1)
+                        {    
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                        } else
+                        {
+                            @if (Model.PizzaList[i].AvailableSizes[1])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                            else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                        }
+                    <span class="selection-label-display">40 см</span>
+                </label>
+                <label class="selection-label">
+                        @if (Model.PizzaList[i].SelectedSize == 2)
+                        {    
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                        } else
+                        {
+                            @if (Model.PizzaList[i].AvailableSizes[2])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                            else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                        }
+                    <span class="selection-label-display">60 см</span>
+                </label>
+            </div>
+        </div>
+        <div class="card-row">
+            @if (Model.PizzaList[i].IsAvailableThickness)
+            {
+            <div class="selection items-2">
+                <label class="selection-label">
+                        @if (Model.PizzaList[i].SelectedThiknes == 0)
+                        {
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                        } else
+                        {
+                            @if (Model.PizzaList[i].AvailableThickness[0])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            } else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            }
+                        }
+                        <span class="selection-label-display">Традиционное</span>
+                </label class="selection-label">
+                <label class="selection-label">
+                    @if (Model.PizzaList[i].SelectedThiknes == 1)
+                        {
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                        } else
+                        {
+                            @if (Model.PizzaList[i].AvailableThickness[1])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            } else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            }
+                        }
+                    <span class="selection-label-display">Толстое</span>
+                </label>
+            </div>
+            }
+        </div>
+        <div class="card-row">
+            <div class="card-price-and-part">
+                <div class="column">
+                    <span class="price">@(Model.PizzaList[i].Price + "₽")</span>
+                </div>
+                <div class="column">
+                    <span class="mass">@(Model.PizzaList[i].Mass + "гр")</span>
+                </div>
+                <div class="column">
+                    <label class="toggler">
+                            @if (Model.PizzaList[i].IsHalf)
+                            {
+                                <input type="checkbox" />
+                            } else
+                            {
+                                <input disabled type="checkbox" />
+                            }
+                            <span class="display-checked">1/2</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="card-row">
+            <div class="card-in-order">
+                <button>В корзину</button> 
+            </div>
+        </div>
+    </div>
+    }
+
+</div>
