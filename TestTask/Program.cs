@@ -2,6 +2,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -13,10 +16,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
+app.MapControllerRoute(
+    name: "name",
+    pattern: "{controller=PizzaList}/{action=GetPizza}");
 
 app.Run();

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "4uMydRmWXP6gbP92NWKOLtgyyZHBE9waJj+3MnhSxhw=",
+  "Source": "TestTaskTwo",
+  "BasePath": "_content/TestTaskTwo",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TestTaskTwo\\wwwroot",
+      "Source": "TestTaskTwo",
+      "ContentRoot": "D:\\Others\\source\\TestTask\\TestTaskTwo\\wwwroot\\",
+      "BasePath": "_content/TestTaskTwo",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Others\\source\\TestTask\\TestTaskTwo\\wwwroot\\css\\site.css",
+      "SourceId": "TestTaskTwo",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Others\\source\\TestTask\\TestTaskTwo\\wwwroot\\",
+      "BasePath": "_content/TestTaskTwo",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    }
+  ]
+}

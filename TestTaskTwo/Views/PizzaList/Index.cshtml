@@ -1,0 +1,164 @@
+﻿@using TestTaskTwo.Models
+@model List<PizzaDataModel>
+
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container">
+<div class="grid-list">
+
+    @for(int i = 0;  i < Model.Count(); i++)
+    {
+
+        <div class="card">
+        <div class="card-image">
+            <img src=@Model[i].Image />
+        </div>
+        <div class="card-name">
+            <p>@Model[i].Name</p>
+        </div>
+        <div class="card-description">
+            <article>
+                @Model[i].Description
+                    @for (int j = 0; j < Model[i].Ingredients?.Count(); j++)
+                    {
+                        <label class="products"><input type="checkbox" checked/><span>@Model[i].Ingredients[j]</span></label>
+                        
+                        @if (j < Model[i].Ingredients?.Count() - 1)
+                        {
+                            <span>, </span>
+                        }
+                    }
+            </article>
+        </div>
+        <div class="card-row">
+                <div class="selection items-3">
+                <label class="selection-label">
+                        @if (Model[i].SelectedSize == 0)
+                        {    
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                        } else
+                        {
+                            @if (Model[i].AvailableSizes[0])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                            else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                        }
+                    <span class="selection-label-display">30 см</span>
+                </label>
+                <label class="selection-label">
+                        @if (Model[i].SelectedSize == 1)
+                        {    
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                        } else
+                        {
+                            @if (Model[i].AvailableSizes[1])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                            else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                        }
+                    <span class="selection-label-display">40 см</span>
+                </label>
+                <label class="selection-label">
+                        @if (Model[i].SelectedSize == 2)
+                        {    
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                        } else
+                        {
+                            @if (Model[i].AvailableSizes[2])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                            else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
+                            }
+                        }
+                    <span class="selection-label-display">60 см</span>
+                </label>
+            </div>
+        </div>
+        <div class="card-row">
+            @if (Model[i].IsAvailableThickness)
+            {
+            <div class="selection items-2">
+                <label class="selection-label">
+                        @if (Model[i].SelectedThiknes == 0)
+                        {
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                        } else
+                        {
+                            @if (Model[i].AvailableThickness[0])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            } else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            }
+                        }
+                        <span class="selection-label-display">Традиционное</span>
+                </label class="selection-label">
+                <label class="selection-label">
+                    @if (Model[i].SelectedThiknes == 1)
+                        {
+                            <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                        } else
+                        {
+                            @if (Model[i].AvailableThickness[1])
+                            {
+                                <input class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            } else
+                            {
+                                <input disabled class="selection-label-radio" type="radio" name=@((i * 2) + "W") />
+                            }
+                        }
+                    <span class="selection-label-display">Толстое</span>
+                </label>
+            </div>
+            }
+        </div>
+        <div class="card-row">
+            <div class="card-price-and-part">
+                <div class="column">
+                    <span class="price">@(Model[i].Price + "₽")</span>
+                </div>
+                <div class="column">
+                    <span class="mass">@(Model[i].Mass + "гр")</span>
+                </div>
+                <div class="column">
+                    <label class="toggler">
+                            @if (Model[i].IsHalf)
+                            {
+                                <input type="checkbox" />
+                            } else
+                            {
+                                <input disabled type="checkbox" />
+                            }
+                            <span class="display-checked">1/2</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="card-row">
+            <div class="card-in-order">
+                <button>В корзину</button> 
+            </div>
+        </div>
+    </div>
+    }
+
+</div>
+
+</div>
+</body>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TestTask.Pages
+namespace TestTaskTwo.Pages
 {
     public class IndexModel : PageModel
     {

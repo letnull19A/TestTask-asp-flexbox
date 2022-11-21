@@ -1,0 +1,239 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --card-padding: 20px;
+    --card-width: 340px;
+    --card-border: 3px;
+    --card-height: 700px;
+    --label-display-height: 32px;
+    --display-checked-height: 40px;
+    --order-button-color: limegreen;
+    --bc-grey: lightgrey;
+    --row-margin: 9px 0;
+    --title-font-size: 18px;
+    --title-line-height: calc(var(--title-font-size) + 2px);
+    --description-font-size: 15px;
+    --description-line-height: calc(var(--description-font-size) + 4px);
+    --gap: 1em;
+    --container-width: calc(((var(--card-width) + var(--gap)) * 4) - var(--gap));
+}
+
+.container {
+    width: var(--container-width);
+    margin: 0 auto;
+    height: auto;
+    min-height: 100px;
+    background-color: transparent;
+}
+
+.grid-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--gap);
+    row-gap: 15px;
+}
+
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: #FFFFFF;
+    border: var(--card-border) solid transparent;
+    border-radius: 30px;
+    padding: var(--card-padding);
+}
+
+    .card:hover {
+        border: var(--card-border) solid yellowgreen;
+    }
+
+.card-image,
+.card-image img {
+    width: calc(var(--card-width) - 40px);
+    height: calc(var(--card-width) - 90px);
+}
+
+.card-name {
+    width: 100%;
+    height: calc(var(--title-line-height) * 3);
+}
+
+    .card-name p {
+        color: darkslategrey;
+        font-family: sans-serif;
+        font-size: var(--title-font-size);
+        line-height: var(--title-line-height);
+    }
+
+.card-description {
+    height: calc(var(--description-line-height) * 8);
+}
+
+    .card-description article {
+        font-family: sans-serif;
+        font-size: var(--description-font-size);
+        line-height: var(--description-line-height);
+    }
+
+.products input[type='checkbox'] {
+    display: none;
+}
+
+.products > span {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+}
+
+    .products > span::after {
+        content: ' +';
+        color: yellowgreen;
+    }
+
+    .products > span::selection {
+        background-color: transparent;
+    }
+
+    .products > input[type='checkbox']:checked + span {
+        text-decoration: underline dotted black;
+        text-decoration-style: dashed;
+        text-decoration-thickness: 1px;
+    }
+
+    .products > input[type='checkbox']:checked + span::after {
+        content: ' X';
+        color: yellowgreen;
+    }
+
+    .products > span::after,
+    .products > input[type='checkbox']:checked + span::after {
+        width: 15px;
+    }
+
+.card-row {
+    margin: var(--row-margin);
+    height: auto;
+    min-height: 32px;
+}
+
+.selection {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    background-color: var(--bc-grey);
+    border-radius: 50px;
+}
+
+.selection-label-radio {
+    display: none;
+}
+
+    .selection-label-radio:not(:checked)[disabled] + .selection-label-display,
+    .toggler > input[disabled] + .display-checked {
+        color: #808080;
+    }
+
+.items-3 > .selection-label,
+.items-3 .selection-label-display {
+    width: calc((var(--card-width) - var(--card-border) * 2 - var(--card-padding) * 2) / 3);
+}
+
+.items-2 .selection-label,
+.items-2 .selection-label-display {
+    width: calc((var(--card-width) - var(--card-border) * 2 - var(--card-padding) * 2) / 2);
+}
+
+.selection-label-display,
+.toggler .display-checked {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.selection-label-display {
+    height: var(--label-display-height);
+    line-height: var(--label-display-height);
+}
+
+.toggler .display-checked {
+    height: var(--display-checked-height);
+    line-height: var(--display-checked-height);
+}
+
+.selection-label-radio:checked + .selection-label-display,
+.toggler input[type='checkbox']:checked + .display-checked {
+    background-color: gold;
+}
+
+.toggler .display-checked::selection,
+.selection-label-display::selection {
+    background-color: transparent;
+}
+
+.card-in-order {
+    width: 100%;
+}
+
+    .card-in-order button {
+        width: 100%;
+        height: 45px;
+        cursor: pointer;
+        border: 2px solid var(--order-button-color);
+        border-radius: 50px;
+        background-color: var(--order-button-color);
+        color: #fff;
+        font-size: 16px;
+    }
+
+.card-price-and-part {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+}
+
+    .card-price-and-part .column {
+        width: calc(100% / 3);
+    }
+
+.toggler {
+    display: block;
+    height: 40px;
+    background-color: var(--bc-grey);
+    width: calc(100% - 20px);
+    border-radius: 50px;
+}
+
+    .toggler input[type='checkbox'] {
+        display: none;
+    }
+
+.card-price-and-part .price,
+.card-price-and-part .mass {
+    font-family: sans-serif;
+    display: flex;
+    align-items: flex-end;
+}
+
+.card-price-and-part .price {
+    color: darkslategrey;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.card-price-and-part .mass {
+    color: grey;
+    font-size: 16px;
+    height: 40px;
+}

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TestTask.Models;
+using TestTaskTwo.Models;
 
-namespace TestTask.Pages
+namespace TestTaskTwo.Pages
 {
     public class PizzaModel : PageModel
     {
