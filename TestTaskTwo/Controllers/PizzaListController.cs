@@ -6,10 +6,11 @@ namespace TestTaskTwo.Controllers
     public class PizzaListController : Controller
     {
         private readonly string _url = "https://cagliari-pizza.ru/images/dishes/";
+        private readonly List<PizzaDataModel> _list;
 
-        public IActionResult Index() 
+        public PizzaListController()
         {
-            var list = new List<PizzaDataModel>()
+            _list = new() 
             {
                 new()
                 {
@@ -185,7 +186,7 @@ namespace TestTaskTwo.Controllers
                     SelectedSize = 0,
                     AvailableSizes = new bool[] { true, true, true },
                     SelectedThiknes = 0,
-                    AvailableThickness = new bool[] { true, false },
+                    AvailableThickness = new bool[] { true, true },
                     Price = 440,
                     Mass = 590,
                     IsHalf = false,
@@ -627,9 +628,13 @@ namespace TestTaskTwo.Controllers
                     IsAvailableThickness = true
                 }
             };
-
-            return View(list);
         }
+
+        public IActionResult Index() => View(_list);
+
+        public IActionResult AjaxList() => View();
+
+        public JsonResult GetList() => Json(_list);
 
     }
 }

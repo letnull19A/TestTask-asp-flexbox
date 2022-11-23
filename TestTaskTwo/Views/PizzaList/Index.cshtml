@@ -57,7 +57,8 @@
                         @if (Model[i].SelectedSize == 1)
                         {    
                             <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
-                        } else
+                        } 
+                        else
                         {
                             @if (Model[i].AvailableSizes[1])
                             {
@@ -74,7 +75,8 @@
                         @if (Model[i].SelectedSize == 2)
                         {    
                             <input checked class="selection-label-radio" type="radio" name=@((i * 2) + "u") />
-                        } else
+                        } 
+                        else
                         {
                             @if (Model[i].AvailableSizes[2])
                             {

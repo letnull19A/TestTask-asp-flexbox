@@ -1,0 +1,117 @@
+﻿@{
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<div class="container grid-list" id="app"></div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+
+    const getData = () => {
+        return $.ajax({
+            url: 'https://localhost:7121/PizzaList/GetList',
+            async: false,
+            method: 'POST',
+            dataType: 'json',
+            success: (response) => {
+                console.log('Удачный запрос"');
+            },
+            error: (error) => {
+                console.error("Ошибка!");
+            }
+        });
+    };
+
+    const buildCard = (data_r, iterator) => {
+
+        var selection = (data_r.isAvailableThickness) ? `<div class="selection items-2">
+                <label class="selection-label">
+                    <input ${(data_r.selectedThiknes === 0) ? ' checked' : ''} ${(data_r.availableThickness[0] == true) ? ' enabled' : ' disabled'} class="selection-label-radio" type="radio" name="${iterator * 2 + 1}E" />
+                    <span class="selection-label-display">Традиционное</span>
+                </label class="selection-label">
+                <label class="selection-label">
+                    <input ${(data_r.selectedThiknes === 1) ? ' checked' : ''} ${(data_r.availableThickness[1] == true) ? ' enabled' : ' disabled'} class="selection-label-radio" type="radio" name="${iterator * 2 + 1}E" />
+                    <span class="selection-label-display">Толстое</span>
+                </label>
+            </div>` : '';
+
+        var additional = "";
+
+        for (var i = 0; i < data_r.ingredients.length; i++) {
+            additional = additional + `<label class="products"><input type="checkbox" checked/><span>${data_r.ingredients[i]}</span></label>${(i === data_r.ingredients.length - 1) ? ' ' : ', '}`;
+        }
+
+        return `
+        <div class="card">
+            <div class="card-image">
+                <img src="${data_r.image}" />
+            </div>
+            <div class="card-name">
+                <p>${data_r.name}</p>
+            </div>
+            <div class="card-description">
+                <article>
+                    ${data_r.description}
+                    ${additional}
+                </article>
+            </div>
+            <div class="card-row">
+                <div class="selection items-3">
+                    <label class="selection-label">
+                        <input ${((data_r.selectedSize) === 0) ? 'checked' : ''} ${((data_r.availableSizes[0] == true) ? 'enabled' : 'disabled')} class="selection-label-radio" type="radio" name="${iterator * 2}m" />
+                        <span class="selection-label-display">30 см</span>
+                    </label>
+                    <label class="selection-label">
+                        <input ${((data_r.selectedSize) === 1) ? 'checked' : ''} ${((data_r.availableSizes[1] == true) ? 'enabled' : 'disabled')} class="selection-label-radio" type="radio" name="${iterator * 2}m" />
+                        <span class="selection-label-display">40 см</span>
+                    </label>
+                    <label class="selection-label">
+                        <input ${((data_r.selectedSize) === 2) ? 'checked' : ''} ${((data_r.availableSizes[2] == true) ? 'enabled' : 'disabled')} class="selection-label-radio" type="radio" name="${iterator * 2}m" />
+                        <span class="selection-label-display">60 см</span>
+                    </label>
+                </div>
+            </div>
+            <div class="card-row">
+                ${selection}
+            </div>
+            <div class="card-row">
+                <div class="card-price-and-part">
+                    <div class="column">
+                        <span class="price">${data_r.price}₽</span>
+                    </div>
+                    <div class="column">
+                        <span class="mass">${data_r.mass}гр</span>
+                    </div>
+                    <div class="column">
+                        <label class="toggler">
+                            <input type="checkbox" ${((data_r.isHalf == true) ? 'enabled' : 'disabled')} />
+                            <span class="display-checked">1/2</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card-in-order">
+                    <button>В корзину</button>
+                </div>
+            </div>
+        </div>`;
+    };
+
+    $(document).ready(() => {
+
+        var data = getData().responseJSON;
+
+        var length = data.length;
+
+        console.log(length);
+
+        for (var i = 0; i < length; i++) {
+            $('#app').append(buildCard(data[i], i));
+        }
+
+    });
+</script>

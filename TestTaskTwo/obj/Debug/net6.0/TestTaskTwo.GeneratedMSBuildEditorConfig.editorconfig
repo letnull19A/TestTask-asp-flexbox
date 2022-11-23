@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Others\source\TestTask\TestTaskTwo
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Others/source/TestTask/TestTaskTwo/Views/PizzaList/AjaxList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGl6emFMaXN0XEFqYXhMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Others/source/TestTask/TestTaskTwo/Views/PizzaList/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGl6emFMaXN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
