@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataBaseContext.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using TestTaskTwo.Models;
 
 namespace TestTaskTwo.Controllers
@@ -7,6 +8,7 @@ namespace TestTaskTwo.Controllers
     {
         private readonly string _url = "https://cagliari-pizza.ru/images/dishes/";
         private readonly List<PizzaDataModel> _list;
+        private readonly IDataBaseContext _context;
 
         public PizzaListController()
         {

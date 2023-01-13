@@ -16,7 +16,6 @@ D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\TestTask.RazorAssemblyInfo.c
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\TestTask.RazorAssemblyInfo.cs
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\staticwebassets.build.json
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\staticwebassets.development.json
-D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\scopedcss\bundle\TestTask.styles.css
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\scopedcss\projectbundle\TestTask.bundle.scp.css
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\TestTask.dll
@@ -24,3 +23,9 @@ D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\refint\TestTask.dll
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\TestTask.pdb
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\TestTask.genruntimeconfig.cache
 D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\ref\TestTask.dll
+D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\staticwebassets\msbuild.TestTask.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\staticwebassets\msbuild.build.TestTask.props
+D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.TestTask.props
+D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.TestTask.props
+D:\Others\source\TestTask\TestTask\obj\Debug\net6.0\staticwebassets.pack.json
